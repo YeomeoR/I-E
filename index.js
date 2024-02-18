@@ -41,8 +41,6 @@ app.post('/submitExpense', (req, res) => {
 
 app.post('/submitIncome', (req, res) => {
   console.log(req.body);
-  app.post('/submitIncome', (req, res) => {
-    console.log(req.body);
 
     db.query(`
       CREATE TABLE IF NOT EXISTS income (
@@ -62,8 +60,51 @@ app.post('/submitIncome', (req, res) => {
       console.log('Income inserted');
     });
     res.redirect('/');
-  });
+
 });
+
+app.post('/download', (req, res) => {
+    console.log(req.body);
+
+    const fromDate = new Date(req.body.fromDate);
+    const toDate = new Date(req.body.toDate);
+
+
+    db.query('SELECT * FROM income WHERE date BETWEEN ? AND ?', [fromDate, toDate], (err, result) => {
+      if (err) throw err;
+      db.query('SELECT * FROM expense WHERE date BETWEEN ? AND ?', [fromDate, toDate], (err, result2) => {
+        if (err) throw err;
+        console.log(result);
+        console.log(result2);
+
+        // merge all income result and expense results2 to make a single object keyed on date
+        let income = {};
+        let expense = {};
+        result.forEach((row) => {
+          if (income[row.date]) {
+            income[row.date].push(row);
+          } else {
+            income[row.date] = { income: [row], expenses: [] };
+          }
+        });
+        result2.forEach((row) => {
+          if (income[row.date]) {
+            income[row.date].expenses.push(row);
+          } else {
+            income[row.date] = { income: [], expenses: [row] };
+          }
+        });
+
+        res.json({ income });
+
+        
+      });
+      
+
+    });
+});
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

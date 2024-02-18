@@ -74,6 +74,27 @@
       </form>
     </div>
   </div>
+  <!-- <div class="summary-container">
+    <h2>Summary</h2>
+    <div class="summary">
+      <h3>Expenses</h3>
+      <p id="expenses"></p>
+      <h3>Income</h3>
+      <p id="income"></p>
+      <h3>Balance</h3>
+      <p id="balance"></p>
+    </div>
+  </div> -->
+
+  <div class="download-container">
+    <form method="POST" action="download">
+      <label for="fromDate">From: </label>
+      <input type="date" id="fromDate" name="fromDate">
+      <label for="toDate">To: </label>
+      <input type="date" id="toDate" name="toDate">
+      <button type="submit" class="download">Download</button>
+    </form>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
