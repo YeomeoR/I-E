@@ -1,0 +1,1 @@
+console.log('submitAcount.js is running...')

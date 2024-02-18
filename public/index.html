@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <!-- jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>I&E - RY</title>
+</head>
+<body>
+
+  <h1>Income and Expenses Form</h1>
+  <div class="forms-container">
+
+    <div class="expenses-container">
+      <h2>Expenses</h2>
+      <form action="../submitExpense" method="POST">
+      
+        <label for="expenseType">Select Expense Type: </label>
+        <select name="expenseType" id="expenseType">
+          <option value="transport">Transport</option>
+          <option value="food">Food</option>
+          <option value="accomodation">Accomodation</option>
+          <option value="phone">Phone</option>
+          <!-- <option value="diary">Diary</option> -->
+          <option value="insurance">Insurance</option>
+          <!-- <option value="union">Union</option> -->
+          <option value="upkeep">Upkeep</option>
+          <option value="misc">Misc</option>
+          <option value="parking/taxis">Parking/Taxis</option>
+          <option value="other">Other</option>
+        </select>
+        <br>
+        <label for="expenseDate">Date: </label>
+        <input type="date" id="expenseDate" name="expenseDate">
+        <br>
+        <label for="expenseAmount">Amount: </label>
+        <input type="number" id="expenseAmount" name="expenseAmount">
+        <br>
+        <label for="expenseDescription">Description: </label>
+        <input type="text" id="expenseDescription" name="expenseDescription">
+        <br>
+        <label for="carMileage">Car Mileage: </label>
+        <input type="number" id="carMileage" name="carMileage">
+        <br>
+        <label for="bikeMileage">Bike Mileage: </label>
+        <input type="number" id="bikeMileage" name="bikeMileage">
+        <br>
+        
+        <button type="submit" id="submit">Submit</button>
+        
+      </form>
+    </div>
+    <div class="income-container">
+      <h2>Income</h2>
+      <form action="../submitIncome" method="POST">
+        <label for="incomeType">Select Income Type: </label>
+        <select name="incomeType" id="incomeType">
+          <option value="music">Music</option>
+          <option value="dev">Dev</option>
+        </select>
+        <br>
+        <label for="incomeDate">Date: </label>
+        <input type="date" id="incomeDate" name="incomeDate">
+        <br>
+        <label for="incomeAmount">Amount: </label>
+        <input type="number" id="incomeAmount" name="incomeAmount">
+        <br>
+        <label for="incomeDescription">Description: </label>
+        <input type="text" id="incomeDescription" name="incomeDescription">
+        <br>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  /* width: 100%;
+  height: 100%; */
+  background: 
+    linear-gradient(45deg, #D9EAD3 25%, #D9EAD3 50%, #D9EAD3 75%, #D9EAD3 100%) 0 0/20px 20px,
+    linear-gradient(45deg, #D9EAD3 25%, #D9EAD3 50%, #D9EAD3 75%, #D9EAD3 100%) 10px 10px/20px 20px,
+    linear-gradient(45deg, #8DB600 25%, #8DB600 50%, #8DB600 75%, #8DB600 100%) 0 10px/20px 20px,
+    linear-gradient(45deg, #8DB600 25%, #8DB600 50%, #8DB600 75%, #8DB600 100%) 10px 0/20px 20px;
+  background-color: #FFFFFF;
+  background-repeat: repeat;
+}
+
+.forms-container  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 40px;
+}
+
+.expenses-container, .income-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  margin-top: 20px;
+}
+
+input, select {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
