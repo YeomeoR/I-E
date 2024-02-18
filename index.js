@@ -74,12 +74,9 @@ app.post('/download', (req, res) => {
       if (err) throw err;
       db.query('SELECT * FROM expense WHERE date BETWEEN ? AND ?', [fromDate, toDate], (err, result2) => {
         if (err) throw err;
-        console.log(result);
-        console.log(result2);
 
-        // merge all income result and expense results2 to make a single object keyed on date
         let income = {};
-        let expense = {};
+        // let expense = {};
         result.forEach((row) => {
           if (income[row.date]) {
             income[row.date].push(row);
