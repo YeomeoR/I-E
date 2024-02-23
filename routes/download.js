@@ -3,6 +3,8 @@ const router = express.Router();
 
 const db = require('../db_connection');
 
+let sharedData = {};
+
 router.post('/download', (req, res) => {
   console.log(req.body);
 
@@ -33,7 +35,9 @@ router.post('/download', (req, res) => {
         }
       });
 
-      res.json({ income });
+      sharedData = income;
+
+      res.redirect('downloadTable');
 
       // TODO: change to res.render on a route and show a table with the data
       // TODO: add a download button to download the data as a CSV
@@ -42,6 +46,14 @@ router.post('/download', (req, res) => {
     
 
   });
+});
+
+router.get('/downloadTable', (req, res) => {
+  console.log('this is the req.body', req.body);
+  console.log('this is the sharedData', sharedData);
+
+  res.render('downloadTable', { income: sharedData });
+  
 });
 
 
